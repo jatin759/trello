@@ -27,7 +27,7 @@ class UserView(APIView):
 
     def post(self, request, *args, **kwargs):
         data = JSONParser().parse(request)
-        
+      
         serializer = UserSerializerCreate(data=data,
                                           context={'request': request})
         if serializer.is_valid():

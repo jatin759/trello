@@ -4,7 +4,9 @@ from django.contrib.auth.models import (
 from django.core.validators import RegexValidator
 # Create your models here.
 
-alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
+alphanumeric = RegexValidator(
+    r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
+
 
 class UserManager(BaseUserManager):
     def create_user(self, username, name, email, password=None):
@@ -53,7 +55,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     uid = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=255, unique=True, db_index=True)
-    username = models.CharField(max_length=255, unique=True, validators=[alphanumeric], db_index=True)
+    username = models.CharField(
+        max_length=255,
+        unique=True,
+        validators=[alphanumeric],
+        db_index=True
+    )
     name = models.CharField(max_length=255)
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
