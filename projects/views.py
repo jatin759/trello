@@ -156,3 +156,34 @@ class UserProjectView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             raise CustomApiException(403, "Permission Denied")
+
+
+class AllUserProjectView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    PUB = []
+    CON = ['GET']
+    SEC = []
+
+    permission_classes = (Permission,)
+
+    # Retrieves all users of all the projects with which a user is associated.
+    # If a user is member of n projects then he/she can see all users of those
+    # n projects. (same like whatsapp group or github group)
+    def get(self, request):
+        user = request.user.username
+        projects = UserProjectRelation.objects.filter(
+                            user=user).values_list('pbid', flat=True)
+
+        projects = list(projects)
+        response = []
+        for project in projects:
+            users = UserProjectRelation.objects.filter(
+                            pbid=project).values_list('user', flat=True)
+
+            new_dict = {}
+            new_dict['project_id'] = project
+            new_dict['users'] = list(users)
+            response.append(new_dict)
+
+        return Response(response, status=status.HTTP_200_OK)
