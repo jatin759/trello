@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('TRELLO_SECRET_KEY')
+SECRET_KEY = 'z2$j0%-7cz3eio#paw(m@7nr$&i6w7+6@nr1sr9w(#z0r1v$h+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'trello.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('TRELLO_PGCONFIG_NAME'),
-        'USER': os.getenv('TRELLO_PGCONFIG_USER'),
-        'PASSWORD': os.getenv('TRELLO_PGCONFIG_PASSWORD'),
-        'HOST': os.getenv('TRELLO_PGCONFIG_HOST'),
-        'PORT': os.getenv('TRELLO_PGCONFIG_PORT'),
+        'NAME': 'trello_dev',
+        'USER': 'jatin',
+        'PASSWORD': ' ',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
