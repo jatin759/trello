@@ -2,7 +2,7 @@
 
 ### Built a "headless" simple Trello board application to manage users and their tasks.	
 
-#### Assumptions (Developed somewhat similar to real Trello/JIRA Application)
+#### Assumptions (Developed similar to real Trello/JIRA Application)
  - Application admin and Project admin are two different terms. Application admin is the one who is owner/developer/CTO of the whole application/company. Project admin is any authorized user who has created the project board.
  - Application admin has all the permissions to all the API endpoints.
  - User can be uniquely identified by username or email id.
