@@ -22,7 +22,6 @@
 #### Other Implementations
  - Generated [API documentation](https://documenter.getpostman.com/view/5222257/SzmfXxAa) via Postman Collection
  - Done with API testing.
- - Tried dockerizing the code. Made Docker Files but the code is not dockerized due to few issues.
  - Built admin panel using Django admin panel. Checked all the functionalities via admin panel.
  - How to build and run the code is mentioned below.
 
